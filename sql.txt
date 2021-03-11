@@ -1,0 +1,18 @@
+create table funcio ( 
+  re bigint auto_increment,  
+  nome varchar(30) not null,  
+  salario decimal (10,2),  
+  setor varchar(20) ,     
+  primary key(re) 
+  )
+
+insert into funcio (nome,salario,setor)values ("Bruno",1500,"A");
+insert into funcio (nome,salario,setor)values ("Angela",900,"B");
+insert into funcio (nome,salario,setor)values ("Lucas",1700,"A");
+insert into funcio (nome,salario,setor)values ("Karen",2000,"C");
+insert into funcio (nome,salario,setor)values ("Isabela",2500,"A");
+
+
+select * from funcio where salario < 2000
+select * from funcio where salario >= 2000
+update funcio set salario = 2100 where re=4

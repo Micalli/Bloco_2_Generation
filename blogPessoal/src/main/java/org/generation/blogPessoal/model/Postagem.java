@@ -6,10 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,6 +26,7 @@ public class Postagem {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	private long id;
+	
 	@NotNull
 	@Size(min= 5, max=100)
 	private String titulo;
@@ -32,6 +35,10 @@ public class Postagem {
 	private String texto;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date= new java.sql.Date(System.currentTimeMillis());
+	@ManyToOne
+	@JsonIgnoreProperties ("postagem")
+	private Tema tema;
+	
 	public long getId() {
 		return id;
 	}
@@ -56,5 +63,12 @@ public class Postagem {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public Tema getTema() {
+		return tema;
+	}
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
+	
 
 }

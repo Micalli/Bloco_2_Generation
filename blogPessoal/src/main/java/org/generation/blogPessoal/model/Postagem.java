@@ -15,10 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import javax.validation.constraints.Size;
 
-
-
-
-
 @Entity
 @Table(name="postagem")
 public class Postagem {
